@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_managedaniel_project,managedaniel.project,model_managedaniel_project,base.group_user,1,1,1,1
+access_managedaniel_task,managedaniel.task,model_managedaniel_task,base.group_user,1,1,1,1
+access_managedaniel_sprint,managedaniel.sprint,model_managedaniel_sprint,base.group_user,1,1,1,1
+access_managedaniel_history,managedaniel.history,model_managedaniel_history,base.group_user,1,1,1,1
+access_managedaniel_technology,managedaniel.technology,model_managedaniel_technology,base.group_user,1,1,1,1
+
+
+

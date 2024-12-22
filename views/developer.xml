@@ -1,0 +1,40 @@
+<odoo>
+    <data>
+        <record model="ir.actions.act_window" id="accion_managedaniel_developer_window">
+            <field name="name">Manage developer window</field>
+            <field name="res_model">res.partner</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record model="ir.ui.view" id="accion_managedaniel_developer_form">
+            <field name="name">Manage form devs</field>
+            <field name="model">res.partner</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="technologies_id"/>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        
+        <record model="ir.actions.act_window.view" id="managedaniel.action_view_developer_tree">
+            <field name="sequence" eval="1"></field>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="base.view_partner_tree"></field>
+            <field name="act_window_id" ref="accion_managedaniel_developer_window"></field>
+        </record>
+        <record model="ir.actions.act_window.view" id="managedaniel.action_view_developer_form">
+            <field name="sequence" eval="2"></field>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="accion_managedaniel_developer_form"></field>
+            <field name="act_window_id" ref="accion_managedaniel_developer_window"></field>
+        </record>
+
+        <!-- actions -->
+        <menuitem name="Devs" id="managedaniel_menu_1_devs_list"
+                  parent="menu_management"
+                  action="accion_managedaniel_developer_window"/>
+    </data>
+</odoo>

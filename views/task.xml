@@ -1,0 +1,64 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="vista_managedaniel_task_tree">
+            <field name="name">vista_managedaniel_task_tree</field>
+            <field name="model">managedaniel.task</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" string="Nombre"/>
+                    <field name="description" string="Descripción"/>
+                    <field name="start_date" string="Fecha de inicio"/>
+                    <field name="end_date" string="Fecha de finalización"/>
+                    <field name="is_paused" string="¿Está pausado?"/>
+                    <field name="sprint_id" string="Id Sprints"/>
+                    <field name="task_history_id" string="Id Historiales"/>
+                </tree>
+            </field>
+        </record>
+        <!-- Plantilla formulario tipo form      -->
+        <record id="vista_managedaniel_task_form" model="ir.ui.view">
+            <field name="name">vista_managedaniel_task_form</field>
+            <field name="model">managedaniel.task</field>
+            <field name="arch" type="xml">
+                <form string="formulario_task">
+                    <sheet>
+                        <group name="group_top">
+                            <field name="name" string="Nombre"/>
+                            <field name="description" string="Descripción"/>
+                            <field name="start_date" string="Fecha de inicio"/>
+                            <field name="end_date" string="Fecha de finalización"/>
+                            <field name="is_paused" string="¿Está pausado?"/>
+                            <field name="technology_id"/>
+                            <field name="sprint_id" string="Id Sprints"/>
+                            <field name="task_history_id" string="Id Historiales"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="accion_managedaniel_task_form">
+            <field name="name">Listado de tareas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">managedaniel.task</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Tareas
+                </p>
+                <p>Click <strong>'Crear'</strong> para añadir nuevos elementos
+                </p>
+            </field>
+        </record>
+
+        <!-- Menú raiz-->
+        <menuitem name="Manage" id="menu_managedaniel_raiz"/>
+        <!-- Segundo nivel -->
+        <menuitem name="Management" id="menu_management"
+                  parent="menu_managedaniel_raiz"/>
+        <!-- actions -->
+        <menuitem name="Task" id="menu_managedaniel_tasks"
+                  parent="menu_management"
+                  action="accion_managedaniel_task_form"/>
+    </data>
+</odoo>

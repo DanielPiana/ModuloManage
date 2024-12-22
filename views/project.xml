@@ -1,0 +1,54 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="vista_managedaniel_project_tree">
+            <field name="name">vista_managedaniel_project_tree</field>
+            <field name="model">managedaniel.project</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name" string="Nombre"/>
+                    <field name="description" string="Descripción"/>
+                    <field name="history_id" string="Id Historial"/>
+                    <field name="sprint_project_id" string="Id Sprints"/>
+                </tree>
+            </field>
+        </record>
+        <!-- Plantilla formulario tipo form      -->
+        <record id="vista_managedaniel_project_form" model="ir.ui.view">
+            <field name="name">vista_managedaniel_project_form</field>
+            <field name="model">managedaniel.project</field>
+            <field name="arch" type="xml">
+                <form string="formulario_project">
+                    <sheet>
+                        <group name="group_top">
+                            <field name="name" string="Nombre"/>
+                            <field name="description" string="Descripción"/>
+                            <field name="history_id" string="Id Historial"/>
+                            <field name="sprint_project_id" string="Id Sprints"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="accion_managedaniel_project_form">
+            <field name="name">Listado de proyectos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">managedaniel.project</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                    Proyectos
+                </p>
+                <p>Click <strong>'Crear'</strong> para añadir nuevos elementos
+                </p>
+            </field>
+        </record>
+
+
+        <!-- actions -->
+        <menuitem name="Project" id="menu_managedaniel_projects"
+                  parent="menu_management"
+                  action="accion_managedaniel_project_form"/>
+    </data>
+</odoo>
+
